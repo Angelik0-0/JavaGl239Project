@@ -1,7 +1,7 @@
 package problem;
 public class Vector2 {
-    private double x;
-    private double y;
+    public double x;
+    public double y;
     public Vector2() {
         x = 1;
         y = 0;
