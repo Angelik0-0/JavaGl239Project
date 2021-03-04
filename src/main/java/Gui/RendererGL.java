@@ -69,7 +69,7 @@ class RendererGL implements GLEventListener {
         // получаем класс для работы с openGL
         GL2 gl = drawable.getGL().getGL2();
         // задаём цвет фона
-        gl.glClearColor(0.1f, 0.1f, 0.1f, 1.0f); // Set background color to black and opaque
+        gl.glClearColor(0f, 0f, 0f, 0f); // Set background color to black and opaque
         gl.glClear(GL2.GL_COLOR_BUFFER_BIT);         // Clear the color buffer (background)
         problem.render(gl);
         // объязываем openGL отрисовать всю сцену и только потом рисовать следующий кадр
