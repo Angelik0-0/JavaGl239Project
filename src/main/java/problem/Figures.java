@@ -112,4 +112,17 @@ public class Figures {
             gl.glEnd();
         }
     }
+
+    public static void renderCircle(GL2 gl, Vector2 pos, double radius, boolean filled){
+        double theta;
+        double step = 0.5;
+        if(filled) {
+            gl.glBegin(GL.GL_TRIANGLE_FAN);
+            for(double a=0.0f; a<360.0f; a += step){
+                theta = 2.0f * Math.PI * a / 180.0f;
+                gl.glVertex3d(radius * Math.cos(theta), radius * Math.sin(theta), 0.0f);
+            }
+            gl.glEnd();
+        }
+    }
 }

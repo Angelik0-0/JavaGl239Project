@@ -137,6 +137,8 @@ public class Problem {
 //        for (int i = 0; i < 20; i++) {
 //            Figures.renderPoint(gl,new Vector2(Math.random()*2-1,Math.random()*2-1),5);
 //        }
+
+
         //Figures.renderPoint(gl,new Vector2(0,0),3);
         //Figures.renderPoint(gl,new Vector2(0.5,0.7),3);
 
@@ -147,7 +149,19 @@ public class Problem {
         //Figures.renderTriangle(gl,new Vector2(0.9,0.1), new Vector2(1,0) , new Vector2(0.9,-0.1), true);
        // Figures.renderTriangle(gl,new Vector2(-0.9,0.1), new Vector2(-1,0) , new Vector2(-0.9,-0.1), true);
 
-        Figures.renderQuads(gl,new Vector2(-0.2,0), new Vector2(-0.1,-0.4) , new Vector2(0.4,0.4), new Vector2(0,-0.5), true);
+      //  Figures.renderQuads(gl,new Vector2(-0.2,0), new Vector2(-0.1,-0.4) , new Vector2(0.4,0.4), new Vector2(0,-0.5), true);
         //Figures.renderTriangle_Strip(gl,new Vector2(-0.9,0.1), new Vector2(-1,0) , new Vector2(-0.9,-0.1), new Vector2(0.5,0.5) , new Vector2(-0.9,-0.1), true);
+
+
+
+        Figures.renderCircle(gl,new Vector2(-0.2,0), 0.3,true);
+
+
+
+
+
+
+
+
    }
 }
