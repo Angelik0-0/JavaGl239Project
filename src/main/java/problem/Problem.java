@@ -30,12 +30,14 @@ public class Problem {
      * список точек
      */
     private ArrayList<Point> points;
+    private ArrayList<Quad> quads;
 
     /**
      * Конструктор класса задачи
      */
     public Problem() {
         points = new ArrayList<>();
+        quads = new ArrayList<>();
     }
 
     /**
@@ -113,8 +115,10 @@ public class Problem {
      */
     public void addRandomPoints(int n) {
         for (int i = 0; i < n; i++) {
-            Point p = Point.getRandomPoint();
-            points.add(p);
+//            Point p = Point.getRandomPoint();
+//            points.add(p);
+            Quad q = Quad.getRandomQuad();
+            quads.add(q);
         }
     }
 
@@ -134,6 +138,9 @@ public class Problem {
 //        for (Point point : points) {
 //           point.render(gl);
 //      }
+        for(Quad quad : quads) {
+            quad.render(gl);
+        }
 //        for (int i = 0; i < 20; i++) {
 //            Figures.renderPoint(gl,new Vector2(Math.random()*2-1,Math.random()*2-1),5);
 //        }
@@ -151,10 +158,15 @@ public class Problem {
 
       //  Figures.renderQuads(gl,new Vector2(-0.2,0), new Vector2(-0.1,-0.4) , new Vector2(0.4,0.4), new Vector2(0,-0.5), true);
         //Figures.renderTriangle_Strip(gl,new Vector2(-0.9,0.1), new Vector2(-1,0) , new Vector2(-0.9,-0.1), new Vector2(0.5,0.5) , new Vector2(-0.9,-0.1), true);
+//
+//
+//        Quad quad = new Quad(new Vector2(0.5, 0.6), new Vector2(0,0),1);
+//        quad.render(gl);
+//
+//        Quad quad2 = new Quad(new Vector2(0.1, 0.3), new Vector2(-0.1,-0.7),2);
+//        quad2.render(gl);
 
-
-
-        Figures.renderCircle(gl,new Vector2(-0.2,0), 0.3,true);
+       // Figures.renderCircle(gl,new Vector2(0,0), 0.5,false);
 
 
 

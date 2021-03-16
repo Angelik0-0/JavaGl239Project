@@ -54,8 +54,10 @@ public class Point {
      */
     static Point getRandomPoint() {
         Random r = new Random();
-        double nx = (double) r.nextInt(50) / 25 - 1;
-        double ny = (double) r.nextInt(50) / 25 - 1;
+//        double nx = (double) r.nextInt(50) / 25 - 1;
+//        double ny = (double) r.nextInt(50) / 25 - 1;
+        double nx = r.nextDouble()*2 - 1;
+        double ny = r.nextDouble()*2 - 1;
         int nSetVal = r.nextInt(2);
         return new Point(nx, ny, nSetVal);
     }
