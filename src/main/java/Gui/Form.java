@@ -16,8 +16,8 @@ public class Form extends JFrame {
      */
     private JPanel GLPlaceholder;
     private JPanel root;
-    private JTextField xPointField;
-    private JTextField yPointField;
+    private JTextField x1RectField;
+    private JTextField y1RectField;
     private JButton randomBtn;
     private JTextField pointCntField;
     private JButton loadFromFileBtn;
@@ -28,6 +28,8 @@ public class Form extends JFrame {
     private JButton addPoint;
     private JRadioButton radioButton1;
     private JRadioButton radioButton2;
+    private JTextField x2RectField;
+    private JTextField y2RectField;
     /**
      * таймер
      */
@@ -88,10 +90,12 @@ public class Form extends JFrame {
         addPoint.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double x = Double.parseDouble(xPointField.getText());
-                double y = Double.parseDouble(yPointField.getText());
+                double x1 = Double.parseDouble(x1RectField.getText());
+                double y1 = Double.parseDouble(y1RectField.getText());
+                double x2 = Double.parseDouble(x2RectField.getText());
+                double y2 = Double.parseDouble(y2RectField.getText());
                 int setVal = radioButton1.isSelected() ? Point.SET_1 : Point.SET_2;
-                renderer.problem.addPoint(x, y, setVal);
+                renderer.problem.addPoint(x1, y1, x2, y2, setVal);
             }
         });
         randomBtn.addActionListener(new ActionListener() {

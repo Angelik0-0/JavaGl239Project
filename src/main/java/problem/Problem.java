@@ -31,6 +31,7 @@ public class Problem {
      */
     private ArrayList<Point> points;
     private ArrayList<Quad> quads;
+    private ArrayList<Quad> resultQuads;
 
     /**
      * Конструктор класса задачи
@@ -38,18 +39,17 @@ public class Problem {
     public Problem() {
         points = new ArrayList<>();
         quads = new ArrayList<>();
+        resultQuads = new ArrayList<>();
     }
 
     /**
      * Добавить точку
      *
-     * @param x      координата X точки
-     * @param y      координата Y точки
      * @param setVal номер множества
      */
-    public void addPoint(double x, double y, int setVal) {
-        Point point = new Point(x, y, setVal);
-        points.add(point);
+    public void addPoint(double x1, double y1, double x2, double y2, int setVal) {
+        Quad quad = new Quad(new Vector2(x1, y1), new Vector2(x2, y2), setVal);
+        quads.add(quad);
     }
 
     /**
@@ -81,12 +81,14 @@ public class Problem {
             Scanner sc = new Scanner(file);
             // пока в файле есть непрочитанные строки
             while (sc.hasNextLine()) {
-                double x = sc.nextDouble();
-                double y = sc.nextDouble();
+                double x1 = sc.nextDouble();
+                double y1 = sc.nextDouble();
+                double x2 = sc.nextDouble();
+                double y2 = sc.nextDouble();
                 int setVal = sc.nextInt();
                 sc.nextLine();
-                Point point = new Point(x, y, setVal);
-                points.add(point);
+                Quad quad = new Quad(new Vector2(x1, y1), new Vector2(x2, y2), setVal);
+                quads.add(quad);
             }
         } catch (Exception ex) {
             System.out.println("Ошибка чтения из файла: " + ex);
@@ -99,8 +101,8 @@ public class Problem {
     public void saveToFile() {
         try {
             PrintWriter out = new PrintWriter(new FileWriter(FILE_NAME));
-            for (Point point : points) {
-                out.printf("%.2f %.2f %d\n", point.x, point.y, point.setNumber);
+            for (Quad quad : quads) {
+                out.printf("%.2f %.2f %.2f %.2f %d\n", quad.a.x, quad.a.y, quad.c.x, quad.c.y, quad.setNumber);
             }
             out.close();
         } catch (IOException ex) {
@@ -126,7 +128,8 @@ public class Problem {
      * Очистить задачу
      */
     public void clear() {
-        points.clear();
+        quads.clear();
+        resultQuads.clear();
     }
 
     /**
@@ -138,7 +141,7 @@ public class Problem {
 //        for (Point point : points) {
 //           point.render(gl);
 //      }
-        for(Quad quad : quads) {
+        for (Quad quad : quads) {
             quad.render(gl);
         }
 //        for (int i = 0; i < 20; i++) {
@@ -154,9 +157,9 @@ public class Problem {
         //Figures.renderLine_Strip(gl,new Vector2(0.9,0.1), new Vector2(1,0) , new Vector2(0.9,-0.1), 5);
 
         //Figures.renderTriangle(gl,new Vector2(0.9,0.1), new Vector2(1,0) , new Vector2(0.9,-0.1), true);
-       // Figures.renderTriangle(gl,new Vector2(-0.9,0.1), new Vector2(-1,0) , new Vector2(-0.9,-0.1), true);
+        // Figures.renderTriangle(gl,new Vector2(-0.9,0.1), new Vector2(-1,0) , new Vector2(-0.9,-0.1), true);
 
-      //  Figures.renderQuads(gl,new Vector2(-0.2,0), new Vector2(-0.1,-0.4) , new Vector2(0.4,0.4), new Vector2(0,-0.5), true);
+        //  Figures.renderQuads(gl,new Vector2(-0.2,0), new Vector2(-0.1,-0.4) , new Vector2(0.4,0.4), new Vector2(0,-0.5), true);
         //Figures.renderTriangle_Strip(gl,new Vector2(-0.9,0.1), new Vector2(-1,0) , new Vector2(-0.9,-0.1), new Vector2(0.5,0.5) , new Vector2(-0.9,-0.1), true);
 //
 //
@@ -166,14 +169,8 @@ public class Problem {
 //        Quad quad2 = new Quad(new Vector2(0.1, 0.3), new Vector2(-0.1,-0.7),2);
 //        quad2.render(gl);
 
-       // Figures.renderCircle(gl,new Vector2(0,0), 0.5,false);
+        // Figures.renderCircle(gl,new Vector2(0,0), 0.5,false);
 
 
-
-
-
-
-
-
-   }
+    }
 }
