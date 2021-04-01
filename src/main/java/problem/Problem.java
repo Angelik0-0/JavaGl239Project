@@ -55,7 +55,8 @@ public class Problem {
     /**
      * Решить задачу
      */
-    public void solve() {
+
+    public void solve2() {
         // перебираем пары точек
         for (Point p : points) {
             for (Point p2 : points) {
@@ -71,11 +72,31 @@ public class Problem {
         }
     }
 
+    public void solve() {
+        // перебираем пары прямоугольников
+        for (Quad q : quads) {
+            for (Quad k : quads) {
+                if (q != k && q.setNumber != k.setNumber) {
+                    // сравниваем координаты..........это 144 вариантa... до связи
+
+                    if(q.a.x < q.c.x && q.a.y < q.c.y){
+                        if()
+                    }
+
+//                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
+//                        p.isSolution = true;
+//                        p2.isSolution = true;
+//                    }
+                }
+            }
+        }
+    }
+
     /**
      * Загрузить задачу из файла
      */
     public void loadFromFile() {
-        points.clear();
+        quads.clear();
         try {
             File file = new File(FILE_NAME);
             Scanner sc = new Scanner(file);

@@ -22,7 +22,7 @@ public class Quad {
     Vector2 c;
     Vector2 d;
 
-    public Quad(Vector2 a, Vector2 c, int setNumber) {
+    Quad(Vector2 a, Vector2 c, int setNumber) {
         this.a = a;
         this.b = new Vector2(c.x, a.y);
         this.c = c;
