@@ -80,7 +80,6 @@ public class Problem {
                     // сравниваем координаты..........это 144 вариантa... до связи
 
                     if(q.a.x < q.c.x && q.a.y < q.c.y){
-                        if()
                     }
 
 //                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
