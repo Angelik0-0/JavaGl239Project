@@ -1,7 +1,6 @@
 package problem;
 
 import javax.media.opengl.GL2;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Quad {
@@ -23,6 +22,16 @@ public class Quad {
     Vector2 d;
 
     Quad(Vector2 a, Vector2 c, int setNumber) {
+        if(a.x> c.x){
+            double k = a.x;
+            a.x = c.x;
+            c.x = k;
+        }
+        if(a.y> c.y){
+            double k = a.y;
+            a.y = c.y;
+            c.y = k;
+        }
         this.a = a;
         this.b = new Vector2(c.x, a.y);
         this.c = c;

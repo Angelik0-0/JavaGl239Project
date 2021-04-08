@@ -58,7 +58,7 @@ public class Figures {
     }
 
 
-    public static <Vector2> void renderQuads(GL2 gl, Vector2 pos1, Vector2 pos2, Vector2 pos3, Vector2 pos4, boolean filled){
+    public static void renderQuads(GL2 gl, Vector2 pos1, Vector2 pos2, Vector2 pos3, Vector2 pos4, boolean filled){
         if (filled) {
             gl.glBegin(GL2.GL_QUADS);
             gl.glColor3d(1, 1, 0);

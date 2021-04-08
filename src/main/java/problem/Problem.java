@@ -77,11 +77,10 @@ public class Problem {
         for (Quad q : quads) {
             for (Quad k : quads) {
                 if (q != k && q.setNumber != k.setNumber) {
-                    // сравниваем координаты..........это 144 вариантa... до связи
+//я по другому сделаю!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! я упорядочила координаты
 
-                    if(q.a.x < q.c.x && q.a.y < q.c.y){
-                    }
-
+//                    if(q.a.x < q.c.x && q.a.y < q.c.y){
+//                    }
 //                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
 //                        p.isSolution = true;
 //                        p2.isSolution = true;
