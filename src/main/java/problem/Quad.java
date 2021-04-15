@@ -12,6 +12,7 @@ public class Quad {
      * константа множества 2
      */
     public static final int SET_2 = 1;
+    public Object x;
     /**
      * номер множества
      */

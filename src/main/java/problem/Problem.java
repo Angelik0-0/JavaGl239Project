@@ -75,10 +75,42 @@ public class Problem {
     public void solve() {
         // перебираем пары прямоугольников
         for (Quad q : quads) {
-            for (Quad k : quads) {
-                if (q != k && q.setNumber != k.setNumber) {
-//я по другому сделаю!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! я упорядочила координаты
+            for (Quad p : quads) {
+                if (q != p && q.setNumber != p.setNumber) {
+                    int k = 0;
 
+                    double x[], y[];
+                    x = new double[8];
+                    y = new double[8];
+                    x[0] = q.a.x;
+                    x[1] = q.a.x;
+                    x[2] = p.a.x;
+                    x[3] = p.c.x;
+                    x[4] = q.c.x;
+                    x[5] = q.c.x;
+                    x[6] = p.a.x;
+                    x[7] = p.c.x;
+
+                    y[6] = q.a.y;
+                    y[7] = q.a.y;
+                    y[1] = p.a.y;
+                    y[0] = p.c.y;
+                    y[2] = q.c.y;
+                    y[3] = q.c.y;
+                    y[4] = p.a.y;
+                    y[5] = p.c.y;
+
+                    for(int i=0; i<8; i++){
+                        for(int j=0; j<8; j++){
+                            if(i != j){
+                                if(x[i] != x[j] && y[i] != y[j]){
+
+
+
+                                }
+                            }
+                        }
+                    }
 //                    if(q.a.x < q.c.x && q.a.y < q.c.y){
 //                    }
 //                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
