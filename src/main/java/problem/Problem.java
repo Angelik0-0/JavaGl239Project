@@ -83,6 +83,7 @@ public class Problem {
                         k++;
                     } else {
                         double x1=10, x2=10, y1=10, y2=10;
+                        //тут все правильно, я проверяла!!!
                         if(q.a.x <= p.a.x && q.c.x <= p.c.x){
                             if(q.a.y <= p.a.y && q.c.y <= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = q.c.x ; y2 = q.c.y;}
                             else if(q.a.y <= p.a.y && q.c.y >= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = q.c.x; y2 = p.c.y;}
