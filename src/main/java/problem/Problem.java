@@ -52,6 +52,7 @@ public class Problem {
         quads.add(quad);
     }
 
+
     /**
      * Решить задачу
      */
@@ -77,46 +78,35 @@ public class Problem {
         for (Quad q : quads) {
             for (Quad p : quads) {
                 if (q != p && q.setNumber != p.setNumber) {
-                    int k = 0;
-
-                    double x[], y[];
-                    x = new double[8];
-                    y = new double[8];
-                    x[0] = q.a.x;
-                    x[1] = q.a.x;
-                    x[2] = p.a.x;
-                    x[3] = p.c.x;
-                    x[4] = q.c.x;
-                    x[5] = q.c.x;
-                    x[6] = p.a.x;
-                    x[7] = p.c.x;
-
-                    y[6] = q.a.y;
-                    y[7] = q.a.y;
-                    y[1] = p.a.y;
-                    y[0] = p.c.y;
-                    y[2] = q.c.y;
-                    y[3] = q.c.y;
-                    y[4] = p.a.y;
-                    y[5] = p.c.y;
-
-                    for(int i=0; i<8; i++){
-                        for(int j=0; j<8; j++){
-                            if(i != j){
-                                if(x[i] != x[j] && y[i] != y[j]){
-
-
-
-                                }
-                            }
+                    if((q.c.x < p.a.x || p.c.x < q.a.x) || (q.c.y < p.a.y || p.c.y < q.a.y)){
+                        int k=0;
+                        k++;
+                    } else {
+                        double x1=10, x2=10, y1=10, y2=10;
+                        if(q.a.x <= p.a.x && q.c.x <= p.c.x){
+                            if(q.a.y <= p.a.y && q.c.y <= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = q.c.x ; y2 = q.c.y;}
+                            else if(q.a.y <= p.a.y && q.c.y >= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = q.c.x; y2 = p.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y <= p.c.y) {x1 = p.a.x; y1 = q.a.y; x2 = q.c.x; y2 = q.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y >= p.c.y) {x1 = p.a.x; y1 = q.a.y; x2 = q.c.x; y2 = p.c.y;}
+                        } else if(q.a.x <= p.a.x && q.c.x >= p.c.x){
+                            if(q.a.y <= p.a.y && q.c.y <= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = p.c.x; y2 = q.c.y;}
+                            else if(q.a.y <= p.a.y && q.c.y >= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = p.c.x; y2 = p.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y <= p.c.y) {x1 = p.a.x; y1 = q.a.y; x2 = p.c.x; y2 = q.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y >= p.c.y) {x1 = p.a.x; y1 = q.a.y; x2 = p.c.x; y2 = p.c.y;}
+                        } else if(q.a.x >= p.a.x && q.c.x <= p.c.x){
+                            if(q.a.y <= p.a.y && q.c.y <= p.c.y) {x1 = q.a.x; y1 = p.a.y; x2 = q.c.x; y2 = q.c.y;}
+                            else if(q.a.y <= p.a.y && q.c.y >= p.c.y) {x1 = q.a.x; y1 = p.a.y; x2 = q.c.x; y2 = p.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y <= p.c.y) {x1 = q.a.x; y1 = q.a.y; x2 = q.c.x; y2 = q.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y >= p.c.y) {x1 = q.a.x; y1 = q.a.y; x2 = q.c.x; y2 = p.c.y;}
+                        }else if(q.a.x >= p.a.x && q.c.x >= p.c.x){
+                            if(q.a.y <= p.a.y && q.c.y <= p.c.y) {x1 = q.a.x; y1 = p.a.y; x2 = p.c.x; y2 = q.c.y;}
+                            else if(q.a.y <= p.a.y && q.c.y >= p.c.y) {x1 = q.a.x; y1 = p.a.y; x2 = p.c.x; y2 = p.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y <= p.c.y) {x1 = q.a.x; y1 = q.a.y; x2 = p.c.x; y2 = q.c.y;}
+                            else if(q.a.y >= p.a.y && q.c.y >= p.c.y) {x1 = q.a.x; y1 = q.a.y; x2 = p.c.x; y2 = p.c.y;}
                         }
+                        Quad quad = new Quad(new Vector2(x1, y1), new Vector2(x2, y2), 3);
+                        resultQuads.add(quad);
                     }
-//                    if(q.a.x < q.c.x && q.a.y < q.c.y){
-//                    }
-//                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
-//                        p.isSolution = true;
-//                        p2.isSolution = true;
-//                    }
                 }
             }
         }
@@ -195,6 +185,11 @@ public class Problem {
         for (Quad quad : quads) {
             quad.render(gl);
         }
+        for (Quad quad : resultQuads) {
+            quad.render(gl);
+        }
+
+
 //        for (int i = 0; i < 20; i++) {
 //            Figures.renderPoint(gl,new Vector2(Math.random()*2-1,Math.random()*2-1),5);
 //        }

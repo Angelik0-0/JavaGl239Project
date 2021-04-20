@@ -61,13 +61,13 @@ public class Figures {
     public static void renderQuads(GL2 gl, Vector2 pos1, Vector2 pos2, Vector2 pos3, Vector2 pos4, boolean filled){
         if (filled) {
             gl.glBegin(GL2.GL_QUADS);
-            gl.glColor3d(1, 1, 0);
+//            gl.glColor3d(1, 1, 0);
             gl.glVertex2d(pos1.x, pos1.y);
-            gl.glColor3d(1, 0, 1);
+//            gl.glColor3d(1, 0, 1);
             gl.glVertex2d(pos2.x, pos2.y);
-            gl.glColor3d(1, 1, 0);
+//            gl.glColor3d(1, 1, 0);
             gl.glVertex2d(pos3.x, pos3.y);
-            gl.glColor3d(1, 0, 1);
+//            gl.glColor3d(1, 0, 1);
             gl.glVertex2d(pos4.x, pos4.y);
             gl.glEnd();
         } else {

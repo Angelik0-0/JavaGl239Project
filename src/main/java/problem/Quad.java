@@ -12,7 +12,6 @@ public class Quad {
      * константа множества 2
      */
     public static final int SET_2 = 1;
-    public Object x;
     /**
      * номер множества
      */
@@ -41,11 +40,17 @@ public class Quad {
     }
 
     public void render(GL2 gl) {
-        if (setNumber == SET_1)
+        if(setNumber == 3){
+            gl.glColor3d(0, 1, 0);
+            Figures.renderQuads(gl, a, b, c, d, true);
+        } else if(setNumber == SET_1){
             gl.glColor3d(1, 0, 1);
-        else
+            Figures.renderQuads(gl, a, b, c, d, false);
+        } else if(setNumber == SET_2){
             gl.glColor3d(1, 1, 0);
-        Figures.renderQuads(gl, a, b, c, d, false);
+            Figures.renderQuads(gl, a, b, c, d, false);
+        }
+
     }
 
     /**
