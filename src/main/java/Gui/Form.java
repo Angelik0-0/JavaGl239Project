@@ -95,7 +95,7 @@ public class Form extends JFrame {
                 double x2 = Double.parseDouble(x2RectField.getText());
                 double y2 = Double.parseDouble(y2RectField.getText());
                 int setVal = radioButton1.isSelected() ? Point.SET_1 : Point.SET_2;
-                renderer.problem.addPoint(x1, y1, x2, y2, setVal);
+                renderer.problem.addQuad(x1, y1, x2, y2, setVal);
             }
         });
         randomBtn.addActionListener(new ActionListener() {

@@ -47,7 +47,7 @@ public class Problem {
      *
      * @param setVal номер множества
      */
-    public void addPoint(double x1, double y1, double x2, double y2, int setVal) {
+    public void addQuad(double x1, double y1, double x2, double y2, int setVal) {
         Quad quad = new Quad(new Vector2(x1, y1), new Vector2(x2, y2), setVal);
         quads.add(quad);
     }
@@ -57,21 +57,7 @@ public class Problem {
      * Решить задачу
      */
 
-    public void solve2() {
-        // перебираем пары точек
-        for (Point p : points) {
-            for (Point p2 : points) {
-                // если точки являются разными
-                if (p != p2) {
-                    // если координаты у них совпадают
-                    if (Math.abs(p.x - p2.x) < 0.0001 && Math.abs(p.y - p2.y) < 0.0001) {
-                        p.isSolution = true;
-                        p2.isSolution = true;
-                    }
-                }
-            }
-        }
-    }
+
 
     public void solve() {
         // перебираем пары прямоугольников
@@ -80,10 +66,9 @@ public class Problem {
                 if (q != p && q.setNumber != p.setNumber) {
                     if((q.c.x < p.a.x || p.c.x < q.a.x) || (q.c.y < p.a.y || p.c.y < q.a.y)){
                         int k=0;
-                        k++;
                     } else {
                         double x1=10, x2=10, y1=10, y2=10;
-                        //тут все правильно, я проверяла!!!
+                        //тут все правильно, я проверяла все случаи!!!
                         if(q.a.x <= p.a.x && q.c.x <= p.c.x){
                             if(q.a.y <= p.a.y && q.c.y <= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = q.c.x ; y2 = q.c.y;}
                             else if(q.a.y <= p.a.y && q.c.y >= p.c.y) {x1 = p.a.x; y1 = p.a.y; x2 = q.c.x; y2 = p.c.y;}
